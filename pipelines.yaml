@@ -99,12 +99,6 @@ pipelines:
       type: MvnBuild
       configuration:
         mvnCommand: clean 
-        runtime:
-          type: image
-          image:
-            custom:
-              name: drydock/u18java
-              tag: master
         sourceLocation: .
         configFileLocation: .
         configFileName: config.yaml
@@ -112,9 +106,9 @@ pipelines:
           - name: orbitera_artifactory
         inputResources:
           - name: oren_pipelines_demo
-      execution:
-          onFailure:
-            - jfrog rt config show
+      # execution:
+      #     onFailure:
+      #       - jfrog rt config show
 
 
       # - name: maven_build
