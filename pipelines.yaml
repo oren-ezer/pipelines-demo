@@ -98,7 +98,7 @@ pipelines:
     - name: maven_build
       type: MvnBuild
       configuration:
-        mvnCommand: clean install -ntp
+        mvnCommand: clean 
         runtime:
           type: image
           image:
