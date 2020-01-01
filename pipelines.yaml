@@ -1,8 +1,8 @@
 resources:
-  - name: oren_gitRepo_demo
+  - name: c
     type: GitRepo
     configuration:
-      path: oren-ezer/demo
+      path: oren-ezer/pipelines-demo
       gitProvider: oren_github
       branch: 
         include: master
@@ -60,7 +60,7 @@ pipelines:
       type: Bash
       configuration:
         inputResources:
-          - name: app
+          - name: oren-ezer/pipelines-demo
       execution:
         onExecute:
           - printenv
