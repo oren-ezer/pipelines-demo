@@ -3,8 +3,8 @@ type: maven
 resolver:
   snapshotRepo: jcenter-remote
   releaseRepo: jcenter-remote
-  serverID: Default-ServerZ
+  serverID: orbitera_artifactory
 deployer:
   snapshotRepo: libs-snapshot-local
   releaseRepo: libs-snapshot-local
-  serverID: Default-ServerZ
+  serverID: orbitera_artifactory
