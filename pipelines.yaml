@@ -1,5 +1,5 @@
 resources:
-  - name: oren-pipelines-demo
+  - name: oren_pipelines_demo
     type: GitRepo
     configuration:
       path: oren-ezer/pipelines-demo
