@@ -101,6 +101,10 @@ pipelines:
           onStart:
             - echo $JAVA_HOME$
             - echo $M2_HOME$
+        integrations:
+          - name: orbitera_artifactory
+        inputResources:
+          - name: oren_pipelines_demo
       - name: maven_build
         type: MvnBuild
         configuration:
