@@ -95,33 +95,30 @@ pipelines:
 
   - name: oren_build_pipeline
     steps:
-      - name: debug_step
-        type: Bash
-        execution:
-          onStart:
-            - echo $JAVA_HOME$
-            - echo $M2_HOME$
+    - name: debug_step
+      type: Bash
+      execution:
+        onExecute:
+          - echo $JAVA_HOME$
+          - echo $M2_HOME$
+
+    - name: maven_build
+      type: MvnBuild
+      configuration:
+        mvnCommand: clean
+        runtime:
+          type: image
+          image:
+            custom:
+              name: drydock/u18java
+              tag: master
+        sourceLocation: .
+        configFileLocation: .
+        configFileName: config.yaml
         integrations:
           - name: orbitera_artifactory
         inputResources:
           - name: oren_pipelines_demo
-      - name: maven_build
-        type: MvnBuild
-        configuration:
-          mvnCommand: clean
-          runtime:
-            type: image
-            image:
-              custom:
-                name: drydock/u18java
-                tag: master
-          sourceLocation: .
-          configFileLocation: .
-          configFileName: config.yaml
-          integrations:
-            - name: orbitera_artifactory
-          inputResources:
-            - name: oren_pipelines_demo
 
       # - name: maven_build
       #   type: MavenBuild
