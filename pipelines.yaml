@@ -95,14 +95,17 @@ pipelines:
 
   - name: oren_build_pipeline
     steps:
-      - name: step_1
-        type: Bash
+      - name: maven_build
+        type: MvnBuild
         configuration:
+          mvnCommand: clean
+          sourceLocation: pipelines-demo/src
+          configLocation: pipelines-demo
+          configFileName: pom.xml
+          integrations:
+            - name: orbitera_artifactory
           inputResources:
             - name: oren_pipelines_demo
-        execution:
-          onExecute:
-            - printenv
 
       # - name: maven_build
       #   type: MavenBuild
