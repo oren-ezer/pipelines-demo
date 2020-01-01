@@ -100,7 +100,7 @@ pipelines:
         configuration:
           mvnCommand: clean
           sourceLocation: pipelines-demo/src
-          configLocation: pipelines-demo
+          configFileLocation: pipelines-demo
           configFileName: pom.xml
           integrations:
             - name: orbitera_artifactory
