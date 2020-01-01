@@ -99,6 +99,12 @@ pipelines:
         type: MvnBuild
         configuration:
           mvnCommand: clean
+          runtime:
+            type: image
+            image:
+              custom:
+                name: drydock/u18java
+                tag: master
           sourceLocation: .
           configFileLocation: .
           configFileName: config.yaml
