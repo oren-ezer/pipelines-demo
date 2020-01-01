@@ -54,58 +54,51 @@ resources:
   #       - 34.69.49.48 this is 
 
 pipelines:
-  - name: oren_skeleton_pipeline
-    steps: 
-    - name: step_1
-      type: Bash
-      configuration:
-        inputResources:
-          - name: oren_pipelines_demo
-      execution:
-        onExecute:
-          - echo $JAVA_HOME$
+  # - name: oren_skeleton_pipeline
+  #   steps: 
+  #   - name: step_1
+  #     type: Bash
+  #     configuration:
+  #       inputResources:
+  #         - name: oren_pipelines_demo
+  #     execution:
+  #       onExecute:
+  #         - echo $JAVA_HOME$
  
-    - name: step_2
-      type: Bash
-      configuration:
-        inputSteps:
-          - name: step_1
-      execution:
-        onExecute:
-          - printenv
+  #   - name: step_2
+  #     type: Bash
+  #     configuration:
+  #       inputSteps:
+  #         - name: step_1
+  #     execution:
+  #       onExecute:
+  #         - printenv
  
-    - name: step_3
-      type: Bash
-      configuration:
-        inputSteps:
-          - name: step_1
-      execution:
-        onExecute:
-          - printenv
+  #   - name: step_3
+  #     type: Bash
+  #     configuration:
+  #       inputSteps:
+  #         - name: step_1
+  #     execution:
+  #       onExecute:
+  #         - printenv
  
-    - name: step_4
-      type: Bash
-      configuration:
-        inputSteps:
-          - name: step_2
-          - name: step_3
-      execution:
-        onExecute:
-          - printenv
+  #   - name: step_4
+  #     type: Bash
+  #     configuration:
+  #       inputSteps:
+  #         - name: step_2
+  #         - name: step_3
+  #     execution:
+  #       onExecute:
+  #         - printenv
 
   - name: oren_build_pipeline
     steps:
-    # - name: debug_step
-    #   type: Bash
-    #   execution:
-    #     onExecute:
-    #       - echo $JAVA_HOME$
-    #       - echo $M2_HOME$
-
     - name: maven_build
       type: MvnBuild
       configuration:
-        mvnCommand: clean
+        mvnCommand: clean install -ntp
         runtime:
           type: image
           image:
@@ -119,6 +112,10 @@ pipelines:
           - name: orbitera_artifactory
         inputResources:
           - name: oren_pipelines_demo
+      execution:
+          onFailure:
+            - jfrog rt config show
+
 
       # - name: maven_build
       #   type: MavenBuild
