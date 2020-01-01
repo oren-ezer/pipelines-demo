@@ -112,18 +112,18 @@ pipelines:
             - echo $M2_HOME$
             - jfrog rt config show
 
-    - name: publish_build
-      type: PublishBuildInfo
-      configuration:
-        integrations:
-          - name: orbitera_artifactory
-        inputSteps:
-          - name: maven_build
-        outputResources:
-          - name: oren_build_info_demo
-      execution:
-          onFailure:
-            - jfrog rt config show
+    # - name: publish_build
+    #   type: PublishBuildInfo
+    #   configuration:
+    #     integrations:
+    #       - name: orbitera_artifactory
+    #     inputSteps:
+    #       - name: maven_build
+    #     outputResources:
+    #       - name: oren_build_info_demo
+    #   execution:
+    #       onFailure:
+    #         - jfrog rt config show
 
 
       # - name: maven_build
