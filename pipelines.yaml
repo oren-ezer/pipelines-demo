@@ -108,6 +108,8 @@ pipelines:
           - name: oren_pipelines_demo
       execution:
           onFailure:
+            - echo $JAVA_HOME$
+            - echo $M2_HOME$
             - jfrog rt config show
 
     - name: publish_build
