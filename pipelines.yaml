@@ -1,5 +1,5 @@
 resources:
-  - name: c
+  - name: oren-pipelines-demo
     type: GitRepo
     configuration:
       path: oren-ezer/pipelines-demo
@@ -60,7 +60,7 @@ pipelines:
       type: Bash
       configuration:
         inputResources:
-          - name: oren-ezer/pipelines-demo
+          - name: oren-pipelines-demo
       execution:
         onExecute:
           - printenv
