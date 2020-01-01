@@ -63,7 +63,7 @@ pipelines:
           - name: oren_pipelines_demo
       execution:
         onExecute:
-          - printenv
+          - echo $JAVA_HOME$
  
     - name: step_2
       type: Bash
