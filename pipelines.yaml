@@ -99,7 +99,7 @@ pipelines:
         type: MvnBuild
         configuration:
           mvnCommand: clean
-          sourceLocation: pipelines-demo/src
+          sourceLocation: src
           configFileLocation: pipelines-demo
           configFileName: pom.xml
           integrations:
