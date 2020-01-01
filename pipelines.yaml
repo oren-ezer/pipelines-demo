@@ -7,51 +7,51 @@ resources:
       branch: 
         include: master
 
-  - name: build_info_demo
+  - name: oren_build_info_demo
     type: BuildInfo
     configuration:
       sourceArtifactory: orbitera_artifactory
       buildName: my_demo_build
       buildNumber: 1
 
-  - name: svc_promoted_build_info_demo
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art
-      buildName: svc_build
-      buildNumber: 1
+  # - name: svc_promoted_build_info_demo
+  #   type: BuildInfo
+  #   configuration:
+  #     sourceArtifactory: art
+  #     buildName: svc_build
+  #     buildNumber: 1
 
 
-  - name: releaseBundle_demo
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: dist
-      name: go-svc-bundle
-      version: v2.0.0
+  # - name: releaseBundle_demo
+  #   type: ReleaseBundle
+  #   configuration:
+  #     sourceDistribution: dist
+  #     name: go-svc-bundle
+  #     version: v2.0.0
 
-  - name: signedBundle_demo
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: dist
-      name: go-svc-bundle
-      version: v2.0.0
+  # - name: signedBundle_demo
+  #   type: ReleaseBundle
+  #   configuration:
+  #     sourceDistribution: dist
+  #     name: go-svc-bundle
+  #     version: v2.0.0
 
-  - name: distributionRules_demo
-    type: DistributionRule
-    configuration:
-      sourceDistribution: dist
-      serviceName: "*"
-      siteName: "England"
-      cityName: "*"
-      countryCodes:
-        - "*"
+  # - name: distributionRules_demo
+  #   type: DistributionRule
+  #   configuration:
+  #     sourceDistribution: dist
+  #     serviceName: "*"
+  #     siteName: "England"
+  #     cityName: "*"
+  #     countryCodes:
+  #       - "*"
 
-  - name: deploy_vm_demo
-    type: VmCluster
-    configuration:
-      sshKey: deploy_ssh
-      targets:
-        - 34.69.49.48 this is 
+  # - name: deploy_vm_demo
+  #   type: VmCluster
+  #   configuration:
+  #     sshKey: deploy_ssh
+  #     targets:
+  #       - 34.69.49.48 this is 
 
 pipelines:
   - name: barebones_pipeline
