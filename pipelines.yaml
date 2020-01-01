@@ -117,8 +117,6 @@ pipelines:
         #   - name: orbitera_artifactory
         inputSteps:
           - name: maven_build
-        inputResources:
-          - name: oren_pipelines_demo
         outputResources:
           - name: oren_build_info_demo
       execution:
