@@ -113,8 +113,8 @@ pipelines:
     - name: publish_build
       type: PublishBuildInfo
       configuration:
-        integrations:
-          - name: orbitera_artifactory
+        # integrations:
+        #   - name: orbitera_artifactory
         inputSteps:
           - name: maven_build
         inputResources:
