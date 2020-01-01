@@ -98,7 +98,7 @@ pipelines:
     - name: maven_build
       type: MvnBuild
       configuration:
-        mvnCommand: clean install
+        mvnCommand: clean install -ntp
         sourceLocation: .
         configFileLocation: .
         configFileName: config.yaml
@@ -107,9 +107,13 @@ pipelines:
         inputResources:
           - name: oren_pipelines_demo
       execution:
-          onFailure:
+          onStart:
             - echo $JAVA_HOME$
             - echo $M2_HOME$
+          onComplete:
+            - echo $JAVA_HOME$
+            - echo $M2_HOME$
+          onFailure:
             - jfrog rt config show
 
     # - name: publish_build
