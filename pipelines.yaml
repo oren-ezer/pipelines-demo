@@ -54,7 +54,7 @@ resources:
   #       - 34.69.49.48 this is 
 
 pipelines:
-  - name: barebones_pipeline
+  - name: oren_skeleton_pipeline
     steps: 
     - name: step_1
       type: Bash
@@ -93,19 +93,28 @@ pipelines:
         onExecute:
           - printenv
 
-  # - name: service
-  #   steps:
-  #     - name: maven_build
-  #       type: MavenBuild
-  #       configuration:
-  #         dockerFileLocation: demo/swampup-go-service
-  #         dockerFileName: Dockerfile
-  #         dockerImageName: docker.artifactory.yallapipeline.yallapipeline/gosvc
-  #         dockerImageTag: $run_number
-  #         inputResources:
-  #           - name: goservice_gitRepo_demo
-  #         integrations:
-  #           - name: art
+  - name: oren_build_pipeline
+    steps:
+      - name: step_1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: oren_pipelines_demo
+        execution:
+          onExecute:
+            - printenv
+
+      # - name: maven_build
+      #   type: MavenBuild
+      #   configuration:
+      #     dockerFileLocation: demo/swampup-go-service
+      #     dockerFileName: Dockerfile
+      #     dockerImageName: docker.artifactory.yallapipeline.yallapipeline/gosvc
+      #     dockerImageTag: $run_number
+      #     inputResources:
+      #       - name: goservice_gitRepo_demo
+      #     integrations:
+      #       - name: art
 
   #     - name: push_svc_demo
   #       type: DockerPush
