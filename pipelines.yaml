@@ -119,7 +119,7 @@ pipelines:
           - name: maven_build
         inputResources:
           - name: oren_pipelines_demo
-        outputResource:
+        outputResources:
           - name: oren_build_info_demo
       execution:
           onFailure:
