@@ -99,8 +99,8 @@ pipelines:
         type: MvnBuild
         configuration:
           mvnCommand: clean
-          sourceLocation: src
-          configFileLocation: pipelines-demo/
+          sourceLocation: .
+          configFileLocation: .
           configFileName: config.yaml
           integrations:
             - name: orbitera_artifactory

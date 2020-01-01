@@ -2,7 +2,7 @@ version: 1
 type: maven
 resolver:
   snapshotRepo: jcenter-remote
-  releaseRepo: jcenter
+  releaseRepo: jcenter-remote
   serverID: orbitera_artifactory
 deployer:
   snapshotRepo: libs-snapshot-local
