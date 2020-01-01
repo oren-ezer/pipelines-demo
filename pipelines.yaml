@@ -60,7 +60,7 @@ pipelines:
       type: Bash
       configuration:
         inputResources:
-          - name: oren-pipelines-demo
+          - name: oren_pipelines_demo
       execution:
         onExecute:
           - printenv
